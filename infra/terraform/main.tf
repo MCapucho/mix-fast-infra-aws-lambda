@@ -16,7 +16,7 @@ resource "aws_lambda_function" "mixfast_lambda_authorizer" {
   filename         = "mixfast_lambda.zip"
   source_code_hash = filebase64sha256("mixfast_lambda.zip")
   handler          = "index.handler"
-  role             = "arn:aws:iam::022874923015:role/mixfast-lambda-role"
+  role             = "arn:aws:iam::022874923015:role/mixfast_lambda_role"
   runtime          = "nodejs18.x"
 
   vpc_config {
