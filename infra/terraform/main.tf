@@ -1,16 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = var.region
-}
-
 resource "aws_lambda_function" "mixfast_lambda_authorizer" {
   function_name    = "${var.name}_lambda_authorizer"
   filename         = "mixfast_lambda.zip"
