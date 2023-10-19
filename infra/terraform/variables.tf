@@ -1,5 +1,5 @@
 variable "region" {
-  default = "us-east-2"
+  default = "us-east-1"
 }
 
 variable "tags" {
@@ -15,12 +15,35 @@ variable "name" {
   default = "mixfast"
 }
 
+variable "vpc_id" {
+  type = string
+  default = "vpc-0a435ade90a13efbd"
+}
 variable "subnet_ids" {
   type = list
-  default = ["subnet-0f1de9542af720987", "subnet-074e436514027d8b1", "subnet-00490b577f79a6477"]
+  default = ["subnet-0406a873952617bd6", "subnet-071f09ce851e88eee", "subnet-08f89a38c4c56076f"]
 }
-
-variable "security_group" {
+variable "from_port_ingress" {
+  type = number
+  default = 0
+}
+variable "to_port_ingress" {
+  type = number
+  default = 0
+}
+variable "protocol_ingress" {
   type = string
-  default = "sg-03b0af3712739ee22"
+  default = "TCP"
+}
+variable "from_port_egress" {
+  type = number
+  default = 0
+}
+variable "to_port_egress" {
+  type = number
+  default = 0
+}
+variable "protocol_egress" {
+  type = string
+  default = "-1"
 }
