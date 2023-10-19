@@ -13,3 +13,12 @@ resource "aws_lambda_function" "mixfast_lambda_authorizer" {
 
   tags = var.tags
 }
+
+resource "aws_lambda_permission" "mixfast_lambda_permission" {
+  statement_id  = "AllowExecutionFromAPIGateway"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.mixfast_lambda_authorizer.function_name
+  principal     = "apigateway.amazonaws.com"
+
+  source_arn = "arn:aws:execute-api:us-east-2:022874923015:w1bsr9aw46/*/*/*"
+}
