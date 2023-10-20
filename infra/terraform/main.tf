@@ -24,7 +24,7 @@ resource "aws_lambda_function" "mixfast_lambda_authorizer_java" {
 
   vpc_config {
     subnet_ids         = var.subnet_ids
-    security_group_ids = [aws_security_group.mixfast_security_group_java.id]
+    security_group_ids = [aws_security_group.mixfast_security_group.id]
   }
 
   tags = var.tags
