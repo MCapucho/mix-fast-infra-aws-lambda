@@ -1,5 +1,5 @@
 resource "aws_security_group" "mixfast_security_group" {
-  name        = "${var.name}_lambda_security_group"
+  name        = "${var.name}_lambda_authorizer_security_group"
   description = "Grupo de seguranca da lambda mixfast authorizer"
   vpc_id      = var.vpc_id
 
