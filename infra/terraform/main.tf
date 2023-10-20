@@ -17,23 +17,3 @@ resource "aws_lambda_function" "mixfast_lambda_authorizer" {
 
   tags = var.tags
 }
-
-resource "aws_lambda_function" "mixfast_lambda_authorizer_java" {
-  function_name    = "${var.name}_lambda_authorizer_java"
-  filename         = "mixfast-authorizer.jar"
-  source_code_hash = filebase64sha256("mixfast-authorizer.jar")
-  handler          = "handler.LambdaHandler"
-  role             = aws_iam_role.lambda_role.arn
-  runtime          = "java17"
-
-  vpc_config {
-    subnet_ids         = var.subnet_ids
-    security_group_ids = [aws_security_group.mixfast_security_group.id]
-  }
-
-  depends_on = [
-    aws_iam_role.lambda_role
-  ]
-
-  tags = var.tags
-}
