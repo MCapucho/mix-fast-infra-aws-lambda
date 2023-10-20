@@ -11,6 +11,10 @@ resource "aws_lambda_function" "mixfast_lambda_authorizer" {
     security_group_ids = [aws_security_group.mixfast_security_group.id]
   }
 
+  depends_on = [
+    aws_iam_role.lambda_role
+  ]
+
   tags = var.tags
 }
 
@@ -26,6 +30,10 @@ resource "aws_lambda_function" "mixfast_lambda_authorizer_java" {
     subnet_ids         = var.subnet_ids
     security_group_ids = [aws_security_group.mixfast_security_group.id]
   }
+
+  depends_on = [
+    aws_iam_role.lambda_role
+  ]
 
   tags = var.tags
 }
