@@ -5,6 +5,8 @@ resource "aws_lambda_function" "mixfast_lambda_authorizer" {
   handler          = "index.handler"
   role             = aws_iam_role.lambda_role.arn
   runtime          = "nodejs18.x"
+  timeout          = 20
+  memory_size      = 512
 
   vpc_config {
     subnet_ids         = var.subnet_ids
@@ -25,6 +27,8 @@ resource "aws_lambda_function" "mixfast_authorizer_cognito_create" {
   handler          = "br.com.postech.mixfastauthorizer.CreateUserHandler"
   role             = aws_iam_role.lambda_role.arn
   runtime          = "java17"
+  timeout          = 20
+  memory_size      = 512
 
   vpc_config {
     subnet_ids         = var.subnet_ids
@@ -45,6 +49,8 @@ resource "aws_lambda_function" "mixfast_authorizer_cognito_confirm" {
   handler          = "br.com.postech.mixfastauthorizer.ConfirmUserHandler"
   role             = aws_iam_role.lambda_role.arn
   runtime          = "java17"
+  timeout          = 20
+  memory_size      = 512
 
   vpc_config {
     subnet_ids         = var.subnet_ids
@@ -65,6 +71,8 @@ resource "aws_lambda_function" "mixfast_authorizer_cognito_login" {
   handler          = "br.com.postech.mixfastauthorizer.LoginUserHandler"
   role             = aws_iam_role.lambda_role.arn
   runtime          = "java17"
+  timeout          = 20
+  memory_size      = 512
 
   vpc_config {
     subnet_ids         = var.subnet_ids
