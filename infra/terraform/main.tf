@@ -8,11 +8,6 @@ resource "aws_lambda_function" "mixfast_lambda_authorizer" {
   timeout          = 20
   memory_size      = 512
 
-  vpc_config {
-    subnet_ids         = var.subnet_ids
-    security_group_ids = [aws_security_group.mixfast_security_group.id]
-  }
-
   depends_on = [
     aws_iam_role.lambda_role
   ]
@@ -29,11 +24,6 @@ resource "aws_lambda_function" "mixfast_authorizer_cognito_create" {
   runtime          = "java17"
   timeout          = 20
   memory_size      = 512
-
-  vpc_config {
-    subnet_ids         = var.subnet_ids
-    security_group_ids = [aws_security_group.mixfast_security_group.id]
-  }
 
   depends_on = [
     aws_iam_role.lambda_role
@@ -52,11 +42,6 @@ resource "aws_lambda_function" "mixfast_authorizer_cognito_confirm" {
   timeout          = 20
   memory_size      = 512
 
-  vpc_config {
-    subnet_ids         = var.subnet_ids
-    security_group_ids = [aws_security_group.mixfast_security_group.id]
-  }
-
   depends_on = [
     aws_iam_role.lambda_role
   ]
@@ -73,11 +58,6 @@ resource "aws_lambda_function" "mixfast_authorizer_cognito_login" {
   runtime          = "java17"
   timeout          = 20
   memory_size      = 512
-
-  vpc_config {
-    subnet_ids         = var.subnet_ids
-    security_group_ids = [aws_security_group.mixfast_security_group.id]
-  }
 
   depends_on = [
     aws_iam_role.lambda_role
