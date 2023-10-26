@@ -15,6 +15,23 @@ resource "aws_lambda_function" "mixfast_lambda_authorizer" {
   tags = var.tags
 }
 
+resource "aws_lambda_function" "mixfast_authorizer_cognito_triggers" {
+  function_name    = "${var.name}_authorizer_cognito_triggers"
+  filename         = "mixfast_authorizer_cognito_triggers.zip"
+  source_code_hash = filebase64sha256("mixfast_authorizer_cognito_triggers.zip")
+  handler          = "index.handler"
+  role             = aws_iam_role.lambda_role.arn
+  runtime          = "nodejs18.x"
+  timeout          = 20
+  memory_size      = 512
+
+  depends_on = [
+    aws_iam_role.lambda_role
+  ]
+
+  tags = var.tags
+}
+
 resource "aws_lambda_function" "mixfast_authorizer_cognito_create" {
   function_name    = "${var.name}_authorizer_cognito_create"
   filename         = "mixfast_authorizer_cognito.jar"
