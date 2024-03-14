@@ -14,3 +14,8 @@ variable "name" {
   type = string
   default = "mixfast"
 }
+
+variable "client_id" {
+  type = string
+  default = "517l7rfbuu92grt060fujpsi95"
+}
