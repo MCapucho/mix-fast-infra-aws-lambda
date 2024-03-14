@@ -44,7 +44,7 @@ resource "aws_lambda_function" "mixfast_authorizer_cognito_create" {
 
   environment {
     variables = {
-      MY_COGNITO_POOL_APP_CLIENT_ID = "52lgngrv9vlj2hqmbfjqn5m18l"
+      MY_COGNITO_POOL_APP_CLIENT_ID = var.client_id
     }
   }
 
@@ -67,7 +67,7 @@ resource "aws_lambda_function" "mixfast_authorizer_cognito_confirm" {
 
   environment {
     variables = {
-      MY_COGNITO_POOL_APP_CLIENT_ID = "52lgngrv9vlj2hqmbfjqn5m18l"
+      MY_COGNITO_POOL_APP_CLIENT_ID = var.client_id
     }
   }
 
@@ -90,7 +90,7 @@ resource "aws_lambda_function" "mixfast_authorizer_cognito_login" {
 
   environment {
     variables = {
-      MY_COGNITO_POOL_APP_CLIENT_ID = "52lgngrv9vlj2hqmbfjqn5m18l"
+      MY_COGNITO_POOL_APP_CLIENT_ID = var.client_id
     }
   }
 
